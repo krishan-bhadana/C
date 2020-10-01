@@ -2,7 +2,7 @@
  
 int main()
 {
-  int array[100], n, c, d, swap,count=0;
+  int array[100], n, c, d, swap, count=0, flag=-1;
  
   printf("Enter number of elements\n");
   scanf("%d", &n);
@@ -13,7 +13,7 @@ int main()
     scanf("%d", &array[c]);
     count++;
  
-  for (c = 0 ; c < ( n - 1 ); c++)
+  for (c = 0 ; c < n; c++)
   {
   	count++;
     for (d = 0 ; d < n - c - 1; d++)
@@ -21,12 +21,15 @@ int main()
       if (array[d] > array[d+1]) /* For decreasing order use < */
       {
       	count=count+3;
-        swap       = array[d];
-        array[d]   = array[d+1];
-        array[d+1] = swap;
+        swap       = array[d+1];
+        array[d+1]   = array[d];
+        array[d] = swap;
+        flag = 0;
       }
       count++;
     }
+    if(flag==-1)
+    break;
     count++;
   }
  
@@ -34,7 +37,7 @@ int main()
  
   for ( c = 0 ; c < n ; c++ )
      printf("%d\n", array[c]);
-     printf("\n count is %d",count);
+     printf("\nNo of loop iterations = %d",count);
  
   return 0;
 }
