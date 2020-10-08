@@ -3,7 +3,7 @@ int cir_queue[100];
 int size,rear=0,front=0;
 void add();
 void delete();
-void display();
+void display();// Merge this pull request
 main()
 {	int ch;
 	printf("Enter the size of circular queue");
